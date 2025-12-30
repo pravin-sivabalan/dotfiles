@@ -12,6 +12,7 @@
                             "value": 1
                         }
                     ],
+                    "description": "caps_lock + j -> down_arrow",
                     "from": {
                         "key_code": "j",
                         "modifiers": {
@@ -22,7 +23,8 @@
                     },
                     "to": [
                         {
-                            "key_code": "down_arrow"
+                            "key_code": "down_arrow",
+                            "repeat": true
                         }
                     ],
                     "type": "basic"
@@ -35,6 +37,7 @@
                             "value": 1
                         }
                     ],
+                    "description": "caps_lock + k -> up_arrow",
                     "from": {
                         "key_code": "k",
                         "modifiers": {
@@ -45,7 +48,8 @@
                     },
                     "to": [
                         {
-                            "key_code": "up_arrow"
+                            "key_code": "up_arrow",
+                            "repeat": true
                         }
                     ],
                     "type": "basic"
@@ -58,6 +62,7 @@
                             "value": 1
                         }
                     ],
+                    "description": "caps_lock + h -> left_arrow",
                     "from": {
                         "key_code": "h",
                         "modifiers": {
@@ -68,7 +73,8 @@
                     },
                     "to": [
                         {
-                            "key_code": "left_arrow"
+                            "key_code": "left_arrow",
+                            "repeat": true
                         }
                     ],
                     "type": "basic"
@@ -81,6 +87,7 @@
                             "value": 1
                         }
                     ],
+                    "description": "caps_lock + l -> right_arrow",
                     "from": {
                         "key_code": "l",
                         "modifiers": {
@@ -91,7 +98,8 @@
                     },
                     "to": [
                         {
-                            "key_code": "right_arrow"
+                            "key_code": "right_arrow",
+                            "repeat": true
                         }
                     ],
                     "type": "basic"
@@ -104,6 +112,7 @@
                             "value": 1
                         }
                     ],
+                    "description": "caps_lock + d -> delete word",
                     "from": {
                         "key_code": "d",
                         "modifiers": {
@@ -114,7 +123,9 @@
                     },
                     "to": [
                         {
-                            "key_code": "page_down"
+                            "key_code": "delete_or_backspace",
+                            "modifiers": ["option"],
+                            "repeat": false
                         }
                     ],
                     "type": "basic"
@@ -202,6 +213,7 @@
                             "value": 1
                         }
                     ],
+                    "description": "caps_lock + equal_sign (+) -> volume_up",
                     "from": {
                         "key_code": "equal_sign",
                         "modifiers": {
@@ -212,7 +224,8 @@
                     },
                     "to": [
                         {
-                            "key_code": "volume_increment"
+                            "key_code": "volume_increment",
+                            "repeat": true
                         }
                     ],
                     "type": "basic"
@@ -225,6 +238,7 @@
                             "value": 1
                         }
                     ],
+                    "description": "caps_lock + hyphen (-) -> volume_down",
                     "from": {
                         "key_code": "hyphen",
                         "modifiers": {
@@ -235,7 +249,8 @@
                     },
                     "to": [
                         {
-                            "key_code": "volume_decrement"
+                            "key_code": "volume_decrement",
+                            "repeat": true
                         }
                     ],
                     "type": "basic"
@@ -248,6 +263,7 @@
                             "value": 1
                         }
                     ],
+                    "description": "caps_lock + 0 -> mute",
                     "from": {
                         "key_code": "0",
                         "modifiers": {
@@ -333,6 +349,202 @@
                     "type": "basic"
                 },
                 {
+                    "conditions": [
+                        {
+                            "name": "caps_lock pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "description": "caps_lock + e -> end of line",
+                    "from": {
+                        "key_code": "e",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow",
+                            "modifiers": ["left_command"],
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "description": "caps_lock + w -> word forward",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow",
+                            "modifiers": ["left_alt"],
+                            "repeat": true
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "description": "caps_lock + b -> word backward",
+                    "from": {
+                        "key_code": "b",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_arrow",
+                            "modifiers": ["left_alt"],
+                            "repeat": true
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "description": "caps_lock + y -> yank",
+                    "from": {
+                        "key_code": "y",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "c",
+                            "modifiers": ["left_gui"],
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "description": "caps_lock + p -> paste",
+                    "from": {
+                        "key_code": "p",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "v",
+                            "modifiers": ["left_gui"],
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "description": "caps_lock + s -> delete till begin",
+                    "from": {
+                        "key_code": "s",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_arrow",
+                            "modifiers": ["left_shift", "left_control"],
+                            "repeat": false
+                        },
+                        {
+                            "key_code": "delete_or_backspace",
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "description": "caps_lock + c -> delete current",
+                    "from": {
+                        "key_code": "c",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow",
+                            "modifiers": ["left_control"],
+                            "repeat": false
+                        },
+                        {
+                            "key_code": "left_arrow",
+                            "modifiers": ["left_shift", "left_control"],
+                            "repeat": false
+                        },
+                        {
+                            "key_code": "delete_or_backspace",
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "description": "caps_lock -> f19 (alfred)",
                     "from": {
                         "key_code": "caps_lock",
                         "modifiers": {
@@ -395,6 +607,7 @@
                             "value": 1
                         }
                     ],
+                    "description": "caps_lock + a -> beginning of line",
                     "from": {
                         "key_code": "a",
                         "modifiers": {
@@ -405,7 +618,9 @@
                     },
                     "to": [
                         {
-                            "key_code": "caps_lock"
+                            "key_code": "left_arrow",
+                            "modifiers": ["left_control"],
+                            "repeat": true
                         }
                     ],
                     "type": "basic"
