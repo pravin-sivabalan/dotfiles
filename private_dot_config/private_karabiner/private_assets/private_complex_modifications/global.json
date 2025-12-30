@@ -2,7 +2,7 @@
     "title": "Caps Lock Vim Movements (rev 2)",
     "rules": [
         {
-            "description": "CAPS › ESC, CAPS+H/J/K/L › ←↓↑→, CAPS+D/U › PG↓↑, CAPS+=/- › VOL±, CAPS+0 › MUTE, CAPS+CMD+=/- › BRIGHT±, CAPS+,/.// › PREV/NEXT/PLAY",
+            "description": "global",
             "manipulators": [
                 {
                     "conditions": [
@@ -363,12 +363,7 @@
                         }
                     ],
                     "type": "basic"
-                }
-            ]
-        },
-        {
-            "description": "CAPS+↩︎ › CAPS",
-            "manipulators": [
+                },
                 {
                     "conditions": [
                         {
@@ -391,12 +386,7 @@
                         }
                     ],
                     "type": "basic"
-                }
-            ]
-        },
-        {
-            "description": "CAPS+A › CAPS",
-            "manipulators": [
+                },
                 {
                     "conditions": [
                         {
