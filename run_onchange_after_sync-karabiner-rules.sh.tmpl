@@ -1,0 +1,117 @@
+#!/bin/bash
+# This script syncs complex modifications from the dotfiles into the main Karabiner config
+# Chezmoi runs this automatically when the hash below changes
+#
+# Hash of Karabiner configuration files to detect changes
+# {{ include "private_dot_config/private_karabiner/private_assets/private_complex_modifications/global.json" | sha256sum }}
+
+set -e
+
+# Only run on macOS
+if [[ "$(uname)" != "Darwin" ]]; then
+    echo "Skipping Karabiner rules sync (not on macOS)"
+    exit 0
+fi
+
+# Check if jq is installed
+if ! command -v jq &> /dev/null; then
+    echo "Error: jq is required but not installed"
+    echo "Install with: brew install jq"
+    exit 1
+fi
+
+KARABINER_DIR="$HOME/.config/karabiner"
+MAIN_CONFIG="$KARABINER_DIR/karabiner.json"
+RULES_SOURCE="$KARABINER_DIR/assets/complex_modifications/global.json"
+
+# Check if Karabiner is installed
+if [[ ! -d "/Applications/Karabiner-Elements.app" ]]; then
+    echo "Karabiner Elements not found, skipping rules sync"
+    exit 0
+fi
+
+# Check if main config exists
+if [[ ! -f "$MAIN_CONFIG" ]]; then
+    echo "Error: Karabiner config not found at $MAIN_CONFIG"
+    echo "Please run Karabiner Elements at least once to initialize the config"
+    exit 1
+fi
+
+# Check if source rules exist
+if [[ ! -f "$RULES_SOURCE" ]]; then
+    echo "Error: Source rules not found at $RULES_SOURCE"
+    exit 1
+fi
+
+echo "Syncing Karabiner complex modifications..."
+
+# Backup the main config
+cp "$MAIN_CONFIG" "$MAIN_CONFIG.backup"
+
+# Extract the title and rules from global.json
+RULE_TITLE=$(jq -r '.title' "$RULES_SOURCE")
+RULES=$(jq -c '.rules' "$RULES_SOURCE")
+
+# Create a temporary file for the updated config
+TEMP_CONFIG=$(mktemp)
+
+# Update the config:
+# 1. For each profile, remove any existing rules that match our new rule descriptions
+# 2. Prepend our rules to the beginning of the complex_modifications.rules array
+jq --argjson rules "$RULES" \
+   '
+   # Extract descriptions from new rules
+   ($rules | map(.description)) as $new_descriptions |
+   .profiles |= map(
+     .complex_modifications.rules |= (
+       # Remove rules that have descriptions matching any new rule
+       map(select(.description as $d | $new_descriptions | index($d) | not)) |
+       # Prepend new rules
+       ($rules + .)
+     )
+   )
+   ' "$MAIN_CONFIG" > "$TEMP_CONFIG"
+
+# Validate the generated JSON
+if ! jq empty "$TEMP_CONFIG" 2>/dev/null; then
+    echo "Error: Generated invalid JSON, restoring backup"
+    mv "$MAIN_CONFIG.backup" "$MAIN_CONFIG"
+    rm -f "$TEMP_CONFIG"
+    exit 1
+fi
+
+# Move the new config into place
+mv "$TEMP_CONFIG" "$MAIN_CONFIG"
+
+echo "✓ Rules synced successfully"
+echo "  Title: $RULE_TITLE"
+echo "  Rules: $(echo "$RULES" | jq '. | length')"
+
+# Restart Karabiner to apply changes
+echo "Restarting Karabiner Elements..."
+
+if launchctl list | grep -q "org.pqrs.karabiner"; then
+    # Restart the console user server
+    launchctl kickstart -k "gui/$(id -u)/org.pqrs.karabiner.karabiner_console_user_server" 2>/dev/null || true
+
+    # Also restart the main service
+    launchctl kickstart -k "gui/$(id -u)/org.pqrs.karabiner.agent" 2>/dev/null || true
+
+    echo "✓ Karabiner Elements restarted successfully"
+else
+    # Fallback: kill and reopen the application
+    if pgrep -x "Karabiner-Elements" > /dev/null; then
+        killall "Karabiner-Elements" 2>/dev/null || true
+        sleep 1
+    fi
+
+    open -a "Karabiner-Elements"
+    echo "✓ Karabiner Elements launched"
+fi
+
+# Clean up backup (keep last 3 backups)
+find "$KARABINER_DIR" -name "karabiner.json.backup*" -type f 2>/dev/null |
+    sort -r | tail -n +4 | xargs rm -f 2>/dev/null || true
+
+echo ""
+echo "Karabiner configuration sync complete!"
