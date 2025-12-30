@@ -176,37 +176,6 @@ jq -r '
 ]
 ```
 
-## Testing & Troubleshooting
-
-### 1. Karabiner-EventViewer
-Use the built-in EventViewer to see real-time key events:
-```bash
-open /Applications/Karabiner-EventViewer.app
-```
-
-### 2. Check Logs
-View Karabiner logs for errors:
-- Open Karabiner-Elements
-- Go to "Log" tab
-- Look for errors related to your configuration
-
-### 3. Common Issues
-
-**Issue**: Configuration not loading
-- Check JSON syntax with `jq`
-- Look for errors in Karabiner Log tab
-- Ensure file is in correct directory: `~/.config/karabiner/assets/complex_modifications/`
-
-**Issue**: Key mapping not working
-- Use EventViewer to confirm key codes
-- Check if another rule is conflicting
-- Verify modifier requirements
-
-**Issue**: Variable conditions not triggering
-- Ensure variable is set in the `to` field
-- Check `to_after_key_up` clears the variable
-- Verify condition checks correct variable name
-
 ## File Locations (macOS)
 
 ```
@@ -217,28 +186,3 @@ View Karabiner logs for errors:
         ├── global.json                      # Your custom rules
         └── vimlike.json                     # Other custom rules
 ```
-
-## Quick Reference: Current Configuration
-
-### Navigation Layer (Caps Lock)
-- `Caps + H/J/K/L` → Arrow keys
-- `Caps + D/U` → Page Down/Up
-- `Caps alone` → Escape
-
-### Media Controls
-- `Caps + =` → Volume Up
-- `Caps + -` → Volume Down
-- `Caps + 0` → Mute
-
-### Brightness Controls
-- `Caps + Cmd + =` → Brightness Up
-- `Caps + Cmd + -` → Brightness Down
-
-### Playback Controls
-- `Caps + ,` → Previous Track
-- `Caps + .` → Next Track
-- `Caps + /` → Play/Pause
-
-### System
-- `Caps + Enter` → Toggle Caps Lock
-- `Caps + A` → Toggle Caps Lock
