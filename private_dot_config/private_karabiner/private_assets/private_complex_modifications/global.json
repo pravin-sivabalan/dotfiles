@@ -264,6 +264,31 @@
                             ]
                         }
                     ],
+                    "description": "left_command + delete_or_backspace -> tilde (internal keyboard only)",
+                    "from": {
+                        "key_code": "delete_or_backspace",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "grave_accent_and_tilde"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                }
+                            ]
+                        }
+                    ],
                     "description": "command + delete_or_backspace -> command + backslash (internal keyboard only)",
                     "from": {
                         "key_code": "delete_or_backspace",
