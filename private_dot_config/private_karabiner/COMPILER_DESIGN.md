@@ -34,8 +34,15 @@ A text-based, natural language-like programming language for maintaining Karabin
 |---------|-------------|---------|
 | `on internal keyboard` | Only on built-in keyboard | `on internal keyboard { ... }` |
 | `on external keyboard` | Only on external keyboards | `on external keyboard { ... }` |
+| `on device` | Only on specific device(s) by vendor:product ID | `on device 1452:832 { ... }` |
 | `in app` | Only in specific application | `in app "com.apple.Terminal" { ... }` |
 | `not in app` | Exclude specific application | `not in app "com.google.Chrome" { ... }` |
+
+### Device Keywords
+
+| Keyword | Description | Example |
+|---------|-------------|---------|
+| `device` | Define a named device alias | `device "Keychron K2" = 1452:832` |
 
 ### Modifier Keywords
 
@@ -68,11 +75,15 @@ A text-based, natural language-like programming language for maintaining Karabin
 ```ebnf
 program        = statement* ;
 
-statement      = layer_def
+statement      = device_def
+               | layer_def
                | condition_block
                | group_def
                | mapping
                | comment ;
+
+device_def     = "device" STRING "=" device_id ;
+device_id      = NUMBER ":" NUMBER ;
 
 layer_def      = "layer" IDENTIFIER "{" layer_body "}" ;
 layer_body     = activate_stmt? alone_stmt? mapping* ;
@@ -81,7 +92,11 @@ alone_stmt     = "when" "alone" "send" key ;
 
 condition_block = condition "{" statement* "}" ;
 condition      = device_condition | app_condition ;
-device_condition = "on" ("internal" | "external") "keyboard" ;
+device_condition = "on" "internal" "keyboard"
+                 | "on" "external" "keyboard"
+                 | "on" "device" device_list ;
+device_list    = device_ref ("," device_ref)* ;
+device_ref     = device_id | STRING ;
 app_condition  = ("in" | "not" "in") "app" STRING ;
 
 group_def      = "group" STRING "{" statement* "}" ;
@@ -103,6 +118,7 @@ comment        = "#" TEXT_TO_EOL ;
 
 IDENTIFIER     = [a-zA-Z_][a-zA-Z0-9_]* ;
 STRING         = '"' [^"]* '"' ;
+NUMBER         = [0-9]+ ;
 ```
 
 ---
@@ -225,6 +241,41 @@ group "Navigation" {
 }
 ```
 
+### 5. Device Condition Compilation
+
+Device conditions compile to Karabiner's `device_if` condition type:
+
+```karabiner
+device "Keychron K2" = 1452:832
+
+on device "Keychron K2" {
+    map a to b
+}
+```
+
+Compiles to:
+```json
+{
+  "conditions": [{
+    "type": "device_if",
+    "identifiers": [{
+      "vendor_id": 1452,
+      "product_id": 832
+    }]
+  }],
+  "from": { "key_code": "a" },
+  "to": [{ "key_code": "b" }],
+  "type": "basic"
+}
+```
+
+Multiple devices in one condition:
+```karabiner
+on device 1452:832, 4176:2322 { ... }
+```
+
+Compiles to an `identifiers` array with multiple entries.
+
 ---
 
 ## Example: Full Configuration
@@ -267,6 +318,19 @@ layer vim {
 on internal keyboard {
     swap backslash with delete
     map grave to escape
+}
+
+# External keyboard aliases
+device "Keychron K2" = 1452:832
+
+# Keychron-specific mappings
+on device "Keychron K2" {
+    map right_alt to right_cmd
+}
+
+# Or use raw vendor:product ID
+on device 4176:2322 {
+    map caps_lock to left_ctrl
 }
 
 # Global remaps
