@@ -164,6 +164,84 @@
                             ]
                         }
                     ],
+                    "description": "command + backslash -> command + delete_or_backspace (internal keyboard only)",
+                    "from": {
+                        "key_code": "backslash",
+                        "modifiers": {
+                            "mandatory": ["command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": ["command"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                }
+                            ]
+                        }
+                    ],
+                    "description": "option + backslash -> option + delete_or_backspace (internal keyboard only)",
+                    "from": {
+                        "key_code": "backslash",
+                        "modifiers": {
+                            "mandatory": ["option"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": ["option"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                }
+                            ]
+                        }
+                    ],
+                    "description": "control + backslash -> control + delete_or_backspace (internal keyboard only)",
+                    "from": {
+                        "key_code": "backslash",
+                        "modifiers": {
+                            "mandatory": ["control"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": ["control"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                }
+                            ]
+                        }
+                    ],
                     "description": "backslash -> delete_or_backspace (internal keyboard only)",
                     "from": {
                         "key_code": "backslash"
@@ -171,6 +249,84 @@
                     "to": [
                         {
                             "key_code": "delete_or_backspace"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                }
+                            ]
+                        }
+                    ],
+                    "description": "command + delete_or_backspace -> command + backslash (internal keyboard only)",
+                    "from": {
+                        "key_code": "delete_or_backspace",
+                        "modifiers": {
+                            "mandatory": ["command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "backslash",
+                            "modifiers": ["command"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                }
+                            ]
+                        }
+                    ],
+                    "description": "option + delete_or_backspace -> option + backslash (internal keyboard only)",
+                    "from": {
+                        "key_code": "delete_or_backspace",
+                        "modifiers": {
+                            "mandatory": ["option"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "backslash",
+                            "modifiers": ["option"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                }
+                            ]
+                        }
+                    ],
+                    "description": "control + delete_or_backspace -> control + backslash (internal keyboard only)",
+                    "from": {
+                        "key_code": "delete_or_backspace",
+                        "modifiers": {
+                            "mandatory": ["control"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "backslash",
+                            "modifiers": ["control"]
                         }
                     ],
                     "type": "basic"
