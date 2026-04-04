@@ -423,6 +423,258 @@
                     "type": "basic"
                 },
                 {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + w -> tmux kill window (Ghostty only)",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "7", "modifiers": ["shift"] }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + [ -> tmux pane left (Ghostty only)",
+                    "from": {
+                        "key_code": "open_bracket",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "left_arrow" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + ] -> tmux pane right (Ghostty only)",
+                    "from": {
+                        "key_code": "close_bracket",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "right_arrow" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + d -> tmux split pane vertical (Ghostty only)",
+                    "from": {
+                        "key_code": "d",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "5", "modifiers": ["shift"] }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + t -> tmux new window (Ghostty only)",
+                    "from": {
+                        "key_code": "t",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "c" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + 1 -> tmux window 1 (Ghostty only)",
+                    "from": {
+                        "key_code": "1",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "1" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + 2 -> tmux window 2 (Ghostty only)",
+                    "from": {
+                        "key_code": "2",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "2" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + 3 -> tmux window 3 (Ghostty only)",
+                    "from": {
+                        "key_code": "3",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "3" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + 4 -> tmux window 4 (Ghostty only)",
+                    "from": {
+                        "key_code": "4",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "4" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + 5 -> tmux window 5 (Ghostty only)",
+                    "from": {
+                        "key_code": "5",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "5" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + 6 -> tmux window 6 (Ghostty only)",
+                    "from": {
+                        "key_code": "6",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "6" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + 7 -> tmux window 7 (Ghostty only)",
+                    "from": {
+                        "key_code": "7",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "7" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + 8 -> tmux window 8 (Ghostty only)",
+                    "from": {
+                        "key_code": "8",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "8" }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                        }
+                    ],
+                    "description": "cmd + 9 -> tmux window 9 (Ghostty only)",
+                    "from": {
+                        "key_code": "9",
+                        "modifiers": { "mandatory": ["command"] }
+                    },
+                    "to": [
+                        { "key_code": "spacebar", "modifiers": ["left_control"] },
+                        { "key_code": "9" }
+                    ],
+                    "type": "basic"
+                },
+                {
                     "description": "left_command + escape -> command + tilde (cycle windows)",
                     "from": {
                         "key_code": "escape",
@@ -818,7 +1070,8 @@
                     ],
                     "to_if_alone": [
                         {
-                            "key_code": "f19"
+                            "key_code": "spacebar",
+                            "modifiers": ["left_control"]
                         }
                     ],
                     "type": "basic"
