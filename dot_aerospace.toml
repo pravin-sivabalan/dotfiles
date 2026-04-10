@@ -114,11 +114,11 @@ on-mode-changed = []
     alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    # If no window exists in that direction, fall through to focus the monitor in that direction
-    alt-h = 'exec-and-forget aerospace focus --boundaries monitor --boundaries-action stop left || aerospace focus-monitor left'
-    alt-j = 'exec-and-forget aerospace focus --boundaries monitor --boundaries-action stop down || aerospace focus-monitor down'
-    alt-k = 'exec-and-forget aerospace focus --boundaries monitor --boundaries-action stop up || aerospace focus-monitor up'
-    alt-l = 'exec-and-forget aerospace focus --boundaries monitor --boundaries-action stop right || aerospace focus-monitor right'
+    # Focus within monitor; if nothing in that direction, focus the adjacent monitor
+    alt-h = 'exec-and-forget ~/.config/aerospace/focus.sh left'
+    alt-j = 'exec-and-forget ~/.config/aerospace/focus.sh down'
+    alt-k = 'exec-and-forget ~/.config/aerospace/focus.sh up'
+    alt-l = 'exec-and-forget ~/.config/aerospace/focus.sh right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-shift-h = 'move left'
