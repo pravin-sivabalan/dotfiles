@@ -114,10 +114,11 @@ on-mode-changed = []
     alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    alt-h = 'focus left'
-    alt-j = 'focus down'
-    alt-k = 'focus up'
-    alt-l = 'focus right'
+    # If no window exists in that direction, fall through to focus the monitor in that direction
+    alt-h = 'exec-and-forget aerospace focus --boundaries monitor --boundaries-action stop left || aerospace focus-monitor left'
+    alt-j = 'exec-and-forget aerospace focus --boundaries monitor --boundaries-action stop down || aerospace focus-monitor down'
+    alt-k = 'exec-and-forget aerospace focus --boundaries monitor --boundaries-action stop up || aerospace focus-monitor up'
+    alt-l = 'exec-and-forget aerospace focus --boundaries monitor --boundaries-action stop right || aerospace focus-monitor right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-shift-h = 'move left'
@@ -197,12 +198,6 @@ on-mode-changed = []
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
-    # See: https://nikitabobko.github.io/AeroSpace/commands#focus-monitor
-    # right_cmd + ctrl + h/j/k/l — jump focus to monitor in that direction
-    alt-ctrl-h = 'focus-monitor left'
-    alt-ctrl-j = 'focus-monitor down'
-    alt-ctrl-k = 'focus-monitor up'
-    alt-ctrl-l = 'focus-monitor right'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
