@@ -11,8 +11,8 @@
                     },
                     "to": [
                         {
-                            "key_code": "right_command",
-                            "modifiers": ["left_control", "left_option"]
+                            "key_code": "left_control",
+                            "modifiers": ["left_option", "left_command"]
                         }
                     ],
                     "to_if_alone": [
@@ -464,7 +464,7 @@
                         "key_code": "escape",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "right_command"
+                                "left_control", "left_option", "left_command"
                             ]
                         }
                     },
@@ -481,7 +481,7 @@
                         "key_code": "9",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "right_command"
+                                "left_control", "left_option", "left_command"
                             ]
                         }
                     },
@@ -498,7 +498,7 @@
                         "key_code": "8",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "right_command"
+                                "left_control", "left_option", "left_command"
                             ]
                         }
                     },
@@ -515,7 +515,7 @@
                         "key_code": "equal_sign",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "right_command"
+                                "left_control", "left_option", "left_command"
                             ]
                         }
                     },
@@ -533,7 +533,7 @@
                         "key_code": "hyphen",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "right_command"
+                                "left_control", "left_option", "left_command"
                             ]
                         }
                     },
@@ -551,7 +551,7 @@
                         "key_code": "0",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "right_command"
+                                "left_control", "left_option", "left_command"
                             ]
                         }
                     },
@@ -568,7 +568,7 @@
                         "key_code": "open_bracket",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "right_command"
+                                "left_control", "left_option", "left_command"
                             ]
                         }
                     },
@@ -585,7 +585,7 @@
                         "key_code": "close_bracket",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "right_command"
+                                "left_control", "left_option", "left_command"
                             ]
                         }
                     },
@@ -602,7 +602,7 @@
                         "key_code": "p",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "right_command"
+                                "left_control", "left_option", "left_command"
                             ]
                         }
                     },
