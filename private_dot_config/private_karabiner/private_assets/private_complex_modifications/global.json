@@ -5,6 +5,24 @@
             "description": "global",
             "manipulators": [
                 {
+                    "description": "right_command (held) -> hyper (ctrl+opt+cmd) for AeroSpace; tap -> right_command",
+                    "from": {
+                        "key_code": "right_command"
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_command",
+                            "modifiers": ["left_control", "left_option"]
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "right_command"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
                     "conditions": [
                         {
                             "name": "caps_lock pressed",
@@ -446,7 +464,7 @@
                         "key_code": "escape",
                         "modifiers": {
                             "mandatory": [
-                                "right_command"
+                                "left_control", "left_option", "right_command"
                             ]
                         }
                     },
@@ -463,7 +481,7 @@
                         "key_code": "9",
                         "modifiers": {
                             "mandatory": [
-                                "right_command"
+                                "left_control", "left_option", "right_command"
                             ]
                         }
                     },
@@ -480,7 +498,7 @@
                         "key_code": "8",
                         "modifiers": {
                             "mandatory": [
-                                "right_command"
+                                "left_control", "left_option", "right_command"
                             ]
                         }
                     },
@@ -497,7 +515,7 @@
                         "key_code": "equal_sign",
                         "modifiers": {
                             "mandatory": [
-                                "right_command"
+                                "left_control", "left_option", "right_command"
                             ]
                         }
                     },
@@ -515,7 +533,7 @@
                         "key_code": "hyphen",
                         "modifiers": {
                             "mandatory": [
-                                "right_command"
+                                "left_control", "left_option", "right_command"
                             ]
                         }
                     },
@@ -533,7 +551,7 @@
                         "key_code": "0",
                         "modifiers": {
                             "mandatory": [
-                                "right_command"
+                                "left_control", "left_option", "right_command"
                             ]
                         }
                     },
@@ -550,7 +568,7 @@
                         "key_code": "open_bracket",
                         "modifiers": {
                             "mandatory": [
-                                "right_command"
+                                "left_control", "left_option", "right_command"
                             ]
                         }
                     },
@@ -567,7 +585,7 @@
                         "key_code": "close_bracket",
                         "modifiers": {
                             "mandatory": [
-                                "right_command"
+                                "left_control", "left_option", "right_command"
                             ]
                         }
                     },
@@ -584,7 +602,7 @@
                         "key_code": "p",
                         "modifiers": {
                             "mandatory": [
-                                "right_command"
+                                "left_control", "left_option", "right_command"
                             ]
                         }
                     },
