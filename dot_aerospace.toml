@@ -109,7 +109,7 @@ on-mode-changed = []
     # '''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    # left_command is remapped to ctrl+opt+cmd (hyper) via Karabiner
+    # right_command is remapped to ctrl+opt+cmd (hyper) via Karabiner
     ctrl-alt-cmd-slash = 'layout tiles horizontal vertical'
     ctrl-alt-cmd-comma = 'layout accordion horizontal vertical'
 
