@@ -5,24 +5,6 @@
             "description": "global",
             "manipulators": [
                 {
-                    "description": "left_command (held) -> hyper (ctrl+opt+cmd) for AeroSpace; tap -> left_command",
-                    "from": {
-                        "key_code": "left_command"
-                    },
-                    "to": [
-                        {
-                            "key_code": "left_command",
-                            "modifiers": ["left_control", "left_option"]
-                        }
-                    ],
-                    "to_if_alone": [
-                        {
-                            "key_code": "left_command"
-                        }
-                    ],
-                    "type": "basic"
-                },
-                {
                     "conditions": [
                         {
                             "name": "caps_lock pressed",
@@ -286,7 +268,7 @@
                     "from": {
                         "key_code": "delete_or_backspace",
                         "modifiers": {
-                            "mandatory": ["left_control", "left_option", "left_command"]
+                            "mandatory": ["left_command"]
                         }
                     },
                     "to": [
@@ -446,7 +428,7 @@
                         "key_code": "escape",
                         "modifiers": {
                             "mandatory": [
-                                "left_control", "left_option", "left_command"
+                                "left_command"
                             ]
                         }
                     },
